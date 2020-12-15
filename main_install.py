@@ -60,6 +60,7 @@ class Installation:
     def arch(self):
         print("Now installing using pacman!")
         update2 = subprocess.run(['sudo', 'pacman', '-Syu'], stdout=subprocess.PIPE, shell=False, text=True)
+        yes_No = input(" ")
         while update2:
             print(update2.stdout)
             time.sleep(2)
