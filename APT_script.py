@@ -21,13 +21,18 @@ def apt_install():
 
     if updating and updating:
         wai = Label(top, text="system updated")
-        wai.grid(row=5, columnspan=1,padx=10, pady=10)
+        wai.grid(row=2, columnspan=1,padx=10, pady=10)
     elif start:
         wai2 = Label(top, text="system upgraded")
-        wai2.grid(row=5, columnspan=1,padx=10, pady=10)
+        wai2.grid(row=2, columnspan=1,padx=10, pady=10)
 def script():
     top =Toplevel()
-
+    bash = Label(top, text="changing bash").grid(row=3, columnspan=2, pady=10, padx=10)
+    with open('*/.bashrc', 'w+') as f:
+        for lines in f:
+            if lines == ('export PS1'):
+                os.write('export PS1="\[$(tput bold)\]\[\033[38;5;128m\]\u\[$(tput sgr0)\] \[$(tput sgr0)\]\[\033[38;5;11m\]>>\[$(tput sgr0)\] \[$(tput sgr0)\]\[$(tput bold)\]\[\033[38;5;166m\]\w\[$(tput sgr0)\]\n\[$(tput sgr0)\]\[$(tput bold)\]\[\033[38;5;1m\]\\$\[$(tput sgr0)\]"')
+        print(f)
 
 top=Toplevel
 mainloop()
