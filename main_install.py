@@ -1,3 +1,4 @@
+from os import close
 from tkinter import Tk, Label, Button, StringVar
 from tkinter import E, N, S, W
 import subprocess, time
@@ -39,9 +40,9 @@ class Installation:
 #define: APT function
     def APT(self):
         print("Now installing using apt-get!")
-        update1 = subprocess.Popen(['sudo', 'apt-get', 'update'], shell=False)
-        update01 = subprocess.Popen(['sudo', 'apt-get', 'upgrade', '-y'], shell=False, stdout=subprocess.PIPE)
-        print (update01.stderr)
+        update1 = subprocess.run(['sudo', 'apt-get', 'update'], shell=False)
+        update01 = subprocess.run(['sudo', 'apt-get', 'upgrade', '-y'], shell=False, stdout=subprocess.PIPE)
+        print (update01.stderr, update01.stdout)
         while update1 and update01 == 0:
             print ('System Updated, Now getting applications!!')
             print ('system upgraded getting applications!!!')
@@ -49,6 +50,10 @@ class Installation:
             importing = subprocess.Popen(args=['*/./APT_script'],stdout=subprocess.PIPE,shell=False, text=True)
             print(importing.stdout)
             print(importing.stderr)
+            if importing == 0:
+                root.mainloop()
+            else:
+                continue
            # importing.stdout.close()
         else:
             if update1 and update01 == 1:
@@ -60,13 +65,12 @@ class Installation:
     def arch(self):
         print("Now installing using pacman!")
         update2 = subprocess.run(['sudo', 'pacman', '-Syu'], stdout=subprocess.PIPE, shell=False, text=True)
-        yes_No = input(" ")
         while update2:
             print(update2.stdout)
             time.sleep(2)
             print ('system updated getting applications!!!')
             import pacman_script
-            importing = subprocess.Popen(args=['*/./pacman_script'],stdout=subprocess.PIPE,shell=False, text=True)
+            importing = subprocess.run(args=['*/./pacman_script'],stdout=subprocess.PIPE,shell=False, text=True)
             new_var = importing.stdout.close()
             new_var
         self.new_method(update2)
