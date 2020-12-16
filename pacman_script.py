@@ -11,7 +11,7 @@ init = Label(top, text="Starting application install").grid(row=0, columnspan=2,
 pip = ['sudo', 'pacman', '-S', 'python-pip']
 #user = Entry(top,)
 first_label = subprocess.Popen((pip),shell=False,stdout=subprocess.PIPE,text=True)
-first_label.wait(4)
+first_label.wait(7)
 #time.sleep(4)
 print(first_label.stdout)
 #close button
