@@ -41,9 +41,10 @@ def script():
     bash = Label(top, text="changing bash").grid(row=3, columnspan=2, pady=10, padx=10)
     with open('*/.bashrc', 'w+') as f:
         for lines in f:
-            if lines == ('export PS1'):
-                os.write('export PS1="\[$(tput bold)\]\[\033[38;5;128m\]\u\[$(tput sgr0)\] \[$(tput sgr0)\]\[\033[38;5;11m\]>>\[$(tput sgr0)\] \[$(tput sgr0)\]\[$(tput bold)\]\[\033[38;5;166m\]\w\[$(tput sgr0)\]\n\[$(tput sgr0)\]\[$(tput bold)\]\[\033[38;5;1m\]\\$\[$(tput sgr0)\]"')
+            if (lines in f = export PS1):
+                os.write(str('export PS1="\[$(tput bold)\]\[\033[38;5;128m\]\u\[$(tput sgr0)\] \[$(tput sgr0)\]\[\033[38;5;11m\]>>\[$(tput sgr0)\] \[$(tput sgr0)\]\[$(tput bold)\]\[\033[38;5;166m\]\w\[$(tput sgr0)\]\n\[$(tput sgr0)\]\[$(tput bold)\]\[\033[38;5;1m\]\\$\[$(tput sgr0)\]"')
         print(f)
-
+     cats = subprocess.run('cat', '*/.bashrc')
+        print(cats)
 top=Toplevel
 mainloop()
