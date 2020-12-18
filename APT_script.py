@@ -28,12 +28,12 @@ def apt_install():
 def vscode():
     top = Toplevel()
     start = Label(top, text="Starting application install").grid(row=0, columnspan=2, pady=10, padx=10)
-    args = ['sudo', 'apt-get', 'install', 'code']
-    #args2 = ['sudo', 'apt-get', 'upgrade -y']
+    #args2 = ['sudo', 'apt-get', 'install', 'code']
+    args = ['sudo', 'apt-get', 'upgrade', '-y']
 #subprocess start    
     updating = subprocess.Popen(args,stdout=subprocess.PIPE,shell=False)
     upgrading = subprocess.Popen(stdin=updating.stdout,stdout=subprocess.PIPE, shell=False)
-    if updating == 1:
+    if (updating=True) and (upgrading=True):
         print(upgrading.stderr)
     updating.stdout.close()        
 def script():
