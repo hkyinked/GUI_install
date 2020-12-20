@@ -50,7 +50,8 @@ class Installation:
             importing = subprocess.Popen(args=['*/./APT_script'],stdout=subprocess.PIPE,shell=False, text=True)
             print(importing.stdout)
             print(importing.stderr)
-            if importing == 0:
+            new_var = 1
+            if importing == new_var:
                 root.mainloop()
             else:
                 continue
@@ -63,22 +64,38 @@ class Installation:
 
 #define: ARCH function
     def arch(self):
-        print("Now installing using pacman!")
-        update2 = subprocess.run(['sudo', 'pacman', '-Syu'], stdout=subprocess.PIPE, shell=False, text=True)
-        while update2:
-            print(update2.stdout)
-            time.sleep(2)
-            print ('system updated getting applications!!!')
-            import pacman_script
-            importing = subprocess.run(args=['*/./pacman_script'],stdout=subprocess.PIPE,shell=False, text=True)
-            new_var = importing.stdout.close()
-            new_var
-        self.new_method(update2)
+        print ('Now installing Using Pacman')
+        timer = time.sleep(1)
+        timer = True
+        if timer:
+          time.sleep(2)
+          print('script imported'),time.sleep(2)
+          print('Running Script Please Wait... '),time.sleep(5)
+          import pacman_s
+          #r = subprocess.Popen(args=['*/./pacman_script.py'],stdout=subprocess.PIPE,shell=False)
+          #run = subprocess.run(['*/./pacman_s'], stdout=subprocess.PIPE, shell=False, text=True)
+         # print(r.stdout)
+        #else:
+        #break
 
-    def new_method(self, update2):
-            if update2 == 1:  
-                print(update2.stderr)
-                print('I broke here!!')
+#################################################
+   # def arch(self):
+   #     print("Now installing using pacman!")
+   #     update2 = subprocess.run(['sudo', 'pacman', '-Syu'], stdout=subprocess.PIPE, shell=False, text=True)
+   #     while update2:
+   #         print(update2.stdout)
+   #         time.sleep(1)
+   #         print ('system updated getting applications!!!')
+   #         import pacman_script
+   #         importing = subprocess.run(args=['*/./pacman_script'],stdout=subprocess.PIPE,shell=False, text=True)
+   #         
+   #         print (importing.returncode)
+   #         importing.stdout.close()
+   #         if importing == "None":
+   #             root.mainloop()
+   #         else:
+   #             continue
+ 
 
 #define: CENTOS function
     def centos(self):
