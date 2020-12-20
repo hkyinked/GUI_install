@@ -1,7 +1,7 @@
 from os import close
 from tkinter import Tk, Label, Button, StringVar
 from tkinter import E, N, S, W
-import subprocess, time
+import subprocess, time, os
 from tkinter import Toplevel
 from tkinter.constants import COMMAND
 
@@ -69,9 +69,17 @@ class Installation:
         timer = True
         if timer:
           time.sleep(2)
-          print('script imported'),time.sleep(2)
-          print('Running Script Please Wait... '),time.sleep(5)
+          print('script imported')
+          time.sleep(2)
+          print('Running Script Please Wait... ')
+          add = time.sleep(5)
           import pacman_s
+          if add:
+              time.sleep(1)
+              root.mainloop()
+          else:
+              exit
+              
           #r = subprocess.Popen(args=['*/./pacman_script.py'],stdout=subprocess.PIPE,shell=False)
           #run = subprocess.run(['*/./pacman_s'], stdout=subprocess.PIPE, shell=False, text=True)
          # print(r.stdout)
