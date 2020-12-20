@@ -28,22 +28,29 @@ def apt_install():
 def vscode():
     top = Toplevel()
     start = Label(top, text="Starting application install").grid(row=0, columnspan=2, pady=10, padx=10)
-    args = ['sudo', 'apt-get', 'install', 'code']
-    #args2 = ['sudo', 'apt-get', 'upgrade -y']
+    #args2 = ['sudo', 'apt-get', 'install', 'code']
+    args = ['sudo', 'apt-get', 'upgrade', '-y']
 #subprocess start    
-    updating = subprocess.Popen(args,stdout=subprocess.PIPE,shell=False)
-    upgrading = subprocess.Popen(stdin=updating.stdout,stdout=subprocess.PIPE, shell=False)
-    if updating == 1:
-        print(upgrading.stderr)
-    updating.stdout.close()        
+ #   updating = subprocess.Popen(args,stdout=subprocess.PIPE,shell=False)
+ #   upgrading = subprocess.Popen(stdin=updating.stdout,stdout=subprocess.PIPE, shell=False)
+ #   if updating == True and upgrading == True:
+ #      # print(upgrading.stderr)
+ #       updating.stdout.close()        
 def script():
     top =Toplevel()
     bash = Label(top, text="changing bash").grid(row=3, columnspan=2, pady=10, padx=10)
-    with open('*/.bashrc', 'w+') as f:
-        for lines in f:
-            if lines == ('export PS1'):
-                os.write('export PS1="\[$(tput bold)\]\[\033[38;5;128m\]\u\[$(tput sgr0)\] \[$(tput sgr0)\]\[\033[38;5;11m\]>>\[$(tput sgr0)\] \[$(tput sgr0)\]\[$(tput bold)\]\[\033[38;5;166m\]\w\[$(tput sgr0)\]\n\[$(tput sgr0)\]\[$(tput bold)\]\[\033[38;5;1m\]\\$\[$(tput sgr0)\]"')
-        print(f)
+    with open('~/bash_cpy', 'w+', encoding="utf-8") as f:
+        f.readlines()
+        for lines in f.readlines:
+            if (lines in f.readlines == ('export PS1') or ('PS1=')):
+                file = 'This works'
+                #file = ('export PS1="\[$(tput bold)\]\[\033[38;5;128m\]\u\[$(tput sgr0)\] \[$(tput sgr0)\]\[\033[38;5;11m\]>>\[$(tput sgr0)\] \[$(tput sgr0)\]\[$(tput bold)\]\[\033[38;5;166m\]\w\[$(tput sgr0)\]\n\[$(tput sgr0)\]\[$(tput bold)\]\[\033[38;5;1m\]\\$\[$(tput sgr0)\]"')
+                f.write(file)
+                f.close()
+            print(f)
+        cats = subprocess.run('cat', '~/bashrc_cpy')
+        print(cats)
+
 
 top=Toplevel
 mainloop()
