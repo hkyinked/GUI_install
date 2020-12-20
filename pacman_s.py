@@ -1,5 +1,5 @@
 ########################
-import subprocess
+import subprocess, os
 from typing import Counter
 ########################
 
@@ -26,8 +26,7 @@ with open("bash_cpy", 'r') as f:
             #        os.write(f , 'r+', message)
             else:
                 continue
-                print(element,Counter, '\t', 'Failed')
-                Counter +1
+
 
 
 

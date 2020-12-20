@@ -66,6 +66,7 @@ class Installation:
     def arch(self):
         print ('Now installing Using Pacman')
         timer = time.sleep(1)
+        timer = True
         if timer:
           time.sleep(2)
           print('script imported'),time.sleep(2)
