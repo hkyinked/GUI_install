@@ -7,7 +7,6 @@ from typing import Counter
 
 
 
-
 def bashUpdate():
     my_lines= []
     Counter = 0
@@ -36,11 +35,11 @@ def bashUpdate():
                           #  message=str('export PS1="\[$(tput bold)\]\[\033[38;5;128m\]\u\[$(tput sgr0)\] \[$(tput sgr0)\]\[\033[38;5;11m\]>>\[$(tput sgr0)\] \[$(tput sgr0)\]\[$(tput bold)\]\[\033[38;5;166m\]\w\[$(tput sgr0)\]\n\[$(tput sgr0)\]\[$(tput bold)\]\[\033[38;5;1m\]\\$\[$(tput sgr0)\]"')
                             lines = str.encode(message)
                             #print (lines)
-                            write = message.replace(lines,message)
+                            write = message.replace(str(lines),key_value)
                             print (write)
                             f.close()
                         else:
-                            exit.__str__()
+                            exit
                 else:
                     continue
 bashUpdate()
