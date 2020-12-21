@@ -3,7 +3,7 @@ from tkinter import Tk, Label, Button, StringVar
 from tkinter import E, N, S, W
 import subprocess, time, os
 from tkinter import Toplevel
-from tkinter.constants import COMMAND
+from tkinter.constants import COMMAND, DISABLED
 
 
 top =Toplevel
@@ -31,7 +31,7 @@ class Installation:
         self.arch_button = Button(master, text="Pacman", command=self.arch, bg='blue', font='white')
         self.arch_button.grid(row=3,column=0,sticky=N,pady=10,padx=10)
 #****YUM button****
-        self.centos_button = Button(master, text="YUM", command=self.centos, bg='purple', font='white')
+        self.centos_button = Button(master, text="YUM", state=DISABLED, command=self.centos, bg='purple', font='white')
         self.centos_button.grid(row=3,column=0,sticky=E,pady=10,padx=10)
 #****Exit button****
         self.close_button = Button(master, text="Exit", command=master.quit, bg='red', font='white')
@@ -79,7 +79,7 @@ class Installation:
               root.mainloop()
           else:
               exit
-              
+
           #r = subprocess.Popen(args=['*/./pacman_script.py'],stdout=subprocess.PIPE,shell=False)
           #run = subprocess.run(['*/./pacman_s'], stdout=subprocess.PIPE, shell=False, text=True)
          # print(r.stdout)
