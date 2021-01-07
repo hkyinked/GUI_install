@@ -43,7 +43,7 @@ def script():
         f.readlines()
         for lines in f.readlines:
             if (lines in f.readlines == ('export PS1') or ('PS1=')):
-                file = 'This works'
+                #file = 'This works'
                 #file = """('export PS1="\[$(tput bold)\]\[\033[38;5;128m\]\u\[$(tput sgr0)\] \[$(tput sgr0)\]\[\033[38;5;11m\]>>\[$(tput sgr0)\] \[$(tput sgr0)\]\[$(tput bold)\]\[\033[38;5;166m\]\w\[$(tput sgr0)\]\n\[$(tput sgr0)\]\[$(tput bold)\]\[\033[38;5;1m\]\\$\[$(tput sgr0)\]"')"""
                 file = """('export PS1="\[$(tput bold)\]\[\\033[38;5;128m\]\u\[$(tput sgr0)\] \[$(tput sgr0)\]\[\\033[38;5;11m\]>>\[$(tput sgr0)\] \[$(tput sgr0)\]\[$(tput bold)\]\[\\033[38;5;166m\]\w\[$(tput sgr0)\]\n\[$(tput sgr0)\]\[$(tput bold)\]\[\033[38;5;1m\]\\$\[$(tput sgr0)\]"')"""
                 f.write(file)
