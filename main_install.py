@@ -42,10 +42,10 @@ class Installation:
         print("Now installing using apt-get!")
         update1 = subprocess.run(['sudo', 'apt-get', 'update'], shell=False)
         update01 = subprocess.run(['sudo', 'apt-get', 'upgrade', '-y'], shell=False, stdout=subprocess.PIPE)
-        print (update01.stderr, update01.stdout)
+        print (update01.stderr, \n, update01.stdout)
         while update1 and update01 == 0:
-            print ('System Updated, Now getting applications!!')
-            print ('system upgraded getting applications!!!')
+            print ('System Updated, Now getting applications!!', \n)
+            print ('system upgraded getting applications!!!'\n)
             import APT_script
             importing = subprocess.Popen(args=['*/./APT_script'],stdout=subprocess.PIPE,shell=False, text=True)
             print(importing.stdout)
